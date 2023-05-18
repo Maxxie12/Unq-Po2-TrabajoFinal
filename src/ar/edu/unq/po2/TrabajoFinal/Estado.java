@@ -1,16 +1,13 @@
 package ar.edu.unq.po2.TrabajoFinal;
 
-public class UsuarioBasico extends Estado{
+public abstract class Estado extends Usuario {
 
-	public UsuarioBasico(int id, String username) {
+	public Estado(int id, String username) {
 		super(id, username);
 		// TODO Auto-generated constructor stub
 	}
 
 	
 	
-
 	
-	
-
 }

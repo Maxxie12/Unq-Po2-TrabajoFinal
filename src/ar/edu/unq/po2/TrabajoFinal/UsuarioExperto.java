@@ -2,10 +2,13 @@ package ar.edu.unq.po2.TrabajoFinal;
 
 public class UsuarioExperto extends Usuario{
 
-	public UsuarioExperto(String nombre, int edad, int numeroDocumento) {
-		super(nombre, edad, numeroDocumento);
-		
+	public UsuarioExperto(int id, String username) {
+		super(id, username);
+		// TODO Auto-generated constructor stub
 	}
+
+	
+	
 
 	
 

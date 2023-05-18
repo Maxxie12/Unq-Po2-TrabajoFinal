@@ -1,9 +1,13 @@
 package ar.edu.unq.po2.TrabajoFinal;
 
-public class Usuario extends Persona{
-
-	public Usuario(String nombre, int edad, int numeroDocumento) {
-		super(nombre, edad, numeroDocumento);
+public class Usuario {
+	
+	int    id;
+	String userName;
+	
+	public Usuario(int id, String username) {
+		this.id = id;
+		this.userName = username;
 	}
 		
 	public void realizarEnvio(Muestra muestra) {

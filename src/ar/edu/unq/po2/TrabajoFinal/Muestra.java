@@ -1,18 +1,21 @@
 package ar.edu.unq.po2.TrabajoFinal;
 
+import java.time.LocalDate;
+
 public class Muestra {
 
 	private String 		especie;
-    private String		foto;
+    private Foto		foto;
     private Ubicacion 	ubicacion;
     private Usuario 	usuario;
     private String		opinion;
+    private LocalDate	fecha;
     
     
 	public String getEspecie() {
 		return especie;
 	}
-	public String getFoto() {
+	public Foto getFoto() {
 		return foto;
 	}
 	public Ubicacion getUbicacion() {
@@ -25,6 +28,10 @@ public class Muestra {
 	
 	public String getOpinion() {
 		return opinion;
+	}
+	
+	public LocalDate getFecha (){
+		return fecha;
 	}
 }
 
