@@ -1,7 +1,5 @@
 package ar.edu.unq.po2.Usuario;
 
-import ar.edu.unq.po2.TrabajoFinal.EstadoUsuario;
-
 public class UsuarioBasico implements EstadoUsuario{
 
 	Usuario user;

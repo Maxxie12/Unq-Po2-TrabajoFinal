@@ -2,7 +2,6 @@ package ar.edu.unq.po2.Usuario;
 
 import java.util.ArrayList;
 
-import ar.edu.unq.po2.TrabajoFinal.EstadoUsuario;
 import ar.edu.unq.po2.TrabajoFinal.Muestra;
 import ar.edu.unq.po2.TrabajoFinal.Opinion;
 import ar.edu.unq.po2.TrabajoFinal.Sistema;
