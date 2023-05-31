@@ -6,7 +6,7 @@ import ar.edu.unq.po2.TrabajoFinal.Muestra;
 
 public abstract class BuscadorMuestras {
 
-	public abstract List<Muestra> filtrar (List <Muestra> MuestrasAFiltrar);
+	public abstract List<Muestra> filtrar(List <Muestra> muestrasAFiltrar);
 	
     public abstract void agregarBuscador(BuscadorMuestras buscadorMuestras);
 	
