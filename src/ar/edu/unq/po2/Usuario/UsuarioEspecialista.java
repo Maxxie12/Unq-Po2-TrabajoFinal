@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.TrabajoFinal;
+package ar.edu.unq.po2.Usuario;
 
 public class UsuarioEspecialista extends Usuario{
 

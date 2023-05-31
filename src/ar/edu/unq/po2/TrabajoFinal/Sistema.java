@@ -2,6 +2,8 @@ package ar.edu.unq.po2.TrabajoFinal;
 
 import java.util.ArrayList;
 
+import ar.edu.unq.po2.Usuario.Usuario;
+
 public class Sistema {
 	
 	private ArrayList<Muestra> muestras;

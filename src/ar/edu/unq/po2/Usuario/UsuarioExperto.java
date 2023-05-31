@@ -1,4 +1,6 @@
-package ar.edu.unq.po2.TrabajoFinal;
+package ar.edu.unq.po2.Usuario;
+
+import ar.edu.unq.po2.TrabajoFinal.EstadoUsuario;
 
 public class UsuarioExperto implements EstadoUsuario{
 

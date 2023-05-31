@@ -3,6 +3,8 @@ package ar.edu.unq.po2.TrabajoFinal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import ar.edu.unq.po2.Usuario.Usuario;
+
 public class Muestra {
 
 	private String 				especie;
