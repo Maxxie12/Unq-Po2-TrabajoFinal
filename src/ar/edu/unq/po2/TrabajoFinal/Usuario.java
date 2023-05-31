@@ -1,26 +1,37 @@
 package ar.edu.unq.po2.TrabajoFinal;
 
+import java.util.ArrayList;
+
 public class Usuario {
 	
-	int    id;
-	String userName;
+	private int    id;
+	private String userName;
+	private EstadoUsuario state;
+	private ArrayList<Opinion> opiniones;
 	
-	public Usuario(int id, String username) {
+	
+	public Usuario(int id, String username, EstadoUsuario state) {
 		this.id = id;
 		this.userName = username;
+		this.state = state;
+		state.setUser(this);
 	}
 		
-	public void realizarEnvio(Muestra muestra) {
+	public void darOpinion(Muestra muestra) {
 		
 	}
 	
-	public void revisiónDeMuestra(Muestra muestra) {
-		
+	public void enviarMuestra(Muestra muestra, Sistema sistema) {
+		sistema.agregarMuestra(muestra);
 	}
 		
-	public void opinar(Muestra muestra, String opinion) {
-		
+	public void cambiarEstado() {
+		state.setState();
 	}
-
 	
+	public void cambiarEstado(EstadoUsuario state) {
+		this.state = state;
+		state.setUser(this);
+	}
+		
 }
