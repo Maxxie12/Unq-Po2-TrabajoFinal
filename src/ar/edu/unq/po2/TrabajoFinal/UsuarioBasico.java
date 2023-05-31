@@ -1,16 +1,21 @@
 package ar.edu.unq.po2.TrabajoFinal;
 
-public class UsuarioBasico extends Estado{
+public class UsuarioBasico implements EstadoUsuario{
 
-	public UsuarioBasico(int id, String username) {
-		super(id, username);
-		// TODO Auto-generated constructor stub
+	Usuario user;
+	
+	public Usuario getUser() {
+		return this.user;
 	}
 
-	
-	
+	public void setUser(Usuario user) {
+		this.user = user;
+	}
 
-	
-	
 
+	@Override
+	public void setState() {
+		this.getUser().cambiarEstado(new UsuarioExperto());
+	}
+	
 }
