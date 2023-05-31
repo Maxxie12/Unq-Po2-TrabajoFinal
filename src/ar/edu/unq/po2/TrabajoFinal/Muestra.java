@@ -1,15 +1,17 @@
 package ar.edu.unq.po2.TrabajoFinal;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Muestra {
 
-	private String 		especie;
-    private Foto		foto;
-    private Ubicacion 	ubicacion;
-    private Usuario 	usuario;
-    private String		opinion;
-    private LocalDate	fecha;
+	private String 				especie;
+    private Foto				foto;
+    private Ubicacion 			ubicacion;
+    private Usuario 			usuario;
+    private String				opinion;
+    private LocalDate			fecha;
+    private ArrayList<String> 	opiniones; 
     
     
 	public String getEspecie() {
@@ -32,6 +34,9 @@ public class Muestra {
 	
 	public LocalDate getFecha (){
 		return fecha;
+	}
+	public ArrayList<String> getOpiniones() {
+		return opiniones;
 	}
 }
 
