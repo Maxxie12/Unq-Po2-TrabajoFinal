@@ -1,7 +1,7 @@
 package ar.edu.unq.po2.BuscadorDeMuestras;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import ar.edu.unq.po2.TrabajoFinal.Muestra;
 
 public class BuscadorOr extends BuscadorMuestras {
@@ -28,9 +28,15 @@ public class BuscadorOr extends BuscadorMuestras {
 	}
 
 	
-	public List<Muestra> filtrar(List<Muestra> Muestras) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar) {
+		
+		List<Muestra> muestrasResultantes = new ArrayList <Muestra>();
+		
+	    muestrasResultantes.addAll(this.getPrimerBuscador().filtrar(muestrasAFiltrar));
+	    muestrasResultantes.addAll(this.getSegundoBuscador().filtrar(muestrasAFiltrar));
+		
+		return muestrasResultantes.stream().distinct().toList(); // me quedo con todo lo que está en ambas listas y le saco los duplicados.
+		
 	}
 
 	@Override

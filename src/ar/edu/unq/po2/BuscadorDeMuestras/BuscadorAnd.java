@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.BuscadorDeMuestras;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.TrabajoFinal.Muestra;
@@ -9,8 +10,7 @@ public class BuscadorAnd extends BuscadorMuestras{
 	private BuscadorMuestras primerBuscador;
 	private BuscadorMuestras segundoBuscador;
 	
-
-
+	
 	public void setPrimerBuscador(BuscadorMuestras primerBuscador) {
 		this.primerBuscador = primerBuscador;
 	}
@@ -28,9 +28,16 @@ public class BuscadorAnd extends BuscadorMuestras{
 	}
 
 	
-	public List<Muestra> filtrar(List<Muestra> Muestras) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar) {
+		List<Muestra> muestrasAFiltrarPorPrimerBuscador  = new ArrayList<Muestra>();
+		List<Muestra> muestrasAFiltrarPorSegundoBuscador = new ArrayList<Muestra>();
+		
+		muestrasAFiltrarPorPrimerBuscador.addAll(this.getPrimerBuscador().filtrar(muestrasAFiltrar));
+		muestrasAFiltrarPorSegundoBuscador.addAll(this.getSegundoBuscador().filtrar(muestrasAFiltrar));
+		
+		muestrasAFiltrarPorPrimerBuscador.retainAll(muestrasAFiltrarPorSegundoBuscador); // Me quedo con las muestras que aparecen en ambas listas
+		return(muestrasAFiltrarPorPrimerBuscador);
+		
 	}
 
 	@Override
