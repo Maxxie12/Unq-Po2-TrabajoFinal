@@ -15,12 +15,49 @@ public class Usuario {
 	
 	
 	public Usuario(int id, String username, EstadoUsuario state) {
-		this.id = id;
-		this.userName = username;
-		this.state = state;
-		state.setUser(this);
+		this.setId(id);
+		this.setUserName(username);
+		this.setState(state);
+		this.setOpiniones(new ArrayList<Opinion>());
 	}
+	
+	public Usuario() {
 		
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public EstadoUsuario getState() {
+		return state;
+	}
+
+	public void setState(EstadoUsuario state) {
+		this.state = state;
+	}
+
+	public ArrayList<Opinion> getOpiniones() {
+		return opiniones;
+	}
+
+	public void setOpiniones(ArrayList<Opinion> opiniones) {
+		this.opiniones = opiniones;
+	}
+
+
 	public void darOpinion(Muestra muestra) {
 		
 	}

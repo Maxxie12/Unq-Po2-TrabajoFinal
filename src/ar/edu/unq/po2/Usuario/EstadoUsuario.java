@@ -1,6 +1,16 @@
 package ar.edu.unq.po2.Usuario;
 
-public interface EstadoUsuario {
+public abstract class EstadoUsuario {
+	Usuario user;
+	
 	public abstract void setState();
-	public abstract void setUser(Usuario user);
+	
+	public void setUser(Usuario user) {
+		this.user = user;
+	}
+	
+	protected Usuario getUser() {
+		return this.user;
+	}
+	
 }

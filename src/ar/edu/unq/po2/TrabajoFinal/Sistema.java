@@ -11,7 +11,7 @@ public class Sistema {
 	private ArrayList<ZonaDeCobertura> zonasDeCobertura;
 	private ArrayList<Organizacion> organizaciones;
 	
-	protected void agregarMuestra(Muestra muestra) {
+	public void agregarMuestra(Muestra muestra) {
 		this.muestras.add(muestra);
 	}
 	

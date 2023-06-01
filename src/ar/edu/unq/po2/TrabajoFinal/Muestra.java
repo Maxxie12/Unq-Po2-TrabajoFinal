@@ -13,7 +13,7 @@ public class Muestra {
     private Usuario 			usuario;
     private String				opinion;
     private LocalDate			fecha;
-    private ArrayList<String> 	opiniones; 
+    private ArrayList<Opinion> 	opiniones; 
     
     
 	public String getEspecie() {
@@ -37,7 +37,7 @@ public class Muestra {
 	public LocalDate getFecha (){
 		return fecha;
 	}
-	public ArrayList<String> getOpiniones() {
+	public ArrayList<Opinion> getOpiniones() {
 		return opiniones;
 	}
 }

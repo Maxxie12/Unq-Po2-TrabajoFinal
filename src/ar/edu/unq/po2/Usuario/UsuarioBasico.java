@@ -1,8 +1,8 @@
 package ar.edu.unq.po2.Usuario;
 
-public class UsuarioBasico implements EstadoUsuario{
+public class UsuarioBasico extends EstadoUsuario{
 
-	Usuario user;
+	private Usuario user;
 	
 	public Usuario getUser() {
 		return this.user;
@@ -12,10 +12,10 @@ public class UsuarioBasico implements EstadoUsuario{
 		this.user = user;
 	}
 
-
 	@Override
 	public void setState() {
 		this.getUser().cambiarEstado(new UsuarioExperto());
 	}
+
 	
 }
