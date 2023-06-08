@@ -2,6 +2,7 @@ package ar.edu.unq.po2.TrabajoFinal;
 
 import java.util.ArrayList;
 
+import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.Usuario.Usuario;
 
 public class Sistema {
@@ -22,7 +23,10 @@ public class Sistema {
 	private void catalogar(Usuario usuario) { // hay que terminar la idea de opinion
 		int cantidadDeMuestrasUsuario = 0;
 		int cantidadDeOpiniones = 0;
-		
+	}
+	
+	private void catalagarMuestra(Muestra muestra) { // hay que terminar la idea de opinion
+		this.muestras.stream().forEach(muestra -> muestra.catalogar());
 	}
 }
 

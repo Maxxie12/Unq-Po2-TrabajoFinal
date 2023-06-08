@@ -3,6 +3,8 @@ package ar.edu.unq.po2.TrabajoFinal;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unq.po2.Muestra.Muestra;
+
 public class ZonaDeCobertura {
 
 	 private String nombre;

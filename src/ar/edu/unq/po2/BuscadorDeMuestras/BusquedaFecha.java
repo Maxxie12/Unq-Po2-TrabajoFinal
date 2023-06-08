@@ -2,7 +2,7 @@ package ar.edu.unq.po2.BuscadorDeMuestras;
 
 import java.util.List;
 
-import ar.edu.unq.po2.TrabajoFinal.Muestra;
+import ar.edu.unq.po2.Muestra.Muestra;
 
 public class BusquedaFecha extends BuscadorMuestras{
 

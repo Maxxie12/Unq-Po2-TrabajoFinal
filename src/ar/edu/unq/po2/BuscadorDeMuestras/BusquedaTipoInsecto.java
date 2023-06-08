@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ar.edu.unq.po2.TrabajoFinal.Muestra;
+import ar.edu.unq.po2.Muestra.Muestra;
 
 public class BusquedaTipoInsecto extends BuscadorMuestras{
 

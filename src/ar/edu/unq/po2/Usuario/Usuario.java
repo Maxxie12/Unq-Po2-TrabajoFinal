@@ -2,7 +2,7 @@ package ar.edu.unq.po2.Usuario;
 
 import java.util.ArrayList;
 
-import ar.edu.unq.po2.TrabajoFinal.Muestra;
+import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.TrabajoFinal.Opinion;
 import ar.edu.unq.po2.TrabajoFinal.Sistema;
 
@@ -58,8 +58,8 @@ public class Usuario {
 	}
 
 
-	public void darOpinion(Muestra muestra) {
-		
+	public void darOpinion(Muestra muestra, Opinion opinion) {
+		muestra.getOpiniones().add(opinion);	
 	}
 	
 	public void enviarMuestra(Muestra muestra, Sistema sistema) {

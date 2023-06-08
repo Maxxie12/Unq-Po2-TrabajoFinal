@@ -3,7 +3,7 @@ package ar.edu.unq.po2.BuscadorDeMuestras;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.unq.po2.TrabajoFinal.Muestra;
+import ar.edu.unq.po2.Muestra.Muestra;
 
 public class BuscadorAnd extends BuscadorMuestras{
 	
