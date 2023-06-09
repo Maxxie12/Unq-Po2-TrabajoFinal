@@ -5,25 +5,25 @@ import java.util.List;
 
 import ar.edu.unq.po2.Muestra.Muestra;
 
-public class BuscadorAnd extends BuscadorMuestras{
+public class BuscadorAnd extends BuscadorLogico{
 	
-	private BuscadorMuestras primerBuscador;
-	private BuscadorMuestras segundoBuscador;
+	private IBuscadorMuestras primerBuscador;
+	private IBuscadorMuestras segundoBuscador;
 	
 	
-	public void setPrimerBuscador(BuscadorMuestras primerBuscador) {
+	public void setPrimerBuscador(IBuscadorMuestras primerBuscador) {
 		this.primerBuscador = primerBuscador;
 	}
 
-	public void setSegundoBuscador(BuscadorMuestras segundoBuscador) {
+	public void setSegundoBuscador(IBuscadorMuestras segundoBuscador) {
 		this.segundoBuscador = segundoBuscador;
 	}
 
-	public BuscadorMuestras getPrimerBuscador() {
+	public IBuscadorMuestras getPrimerBuscador() {
 		return this.primerBuscador;
 	}
 
-	public BuscadorMuestras getSegundoBuscador() {
+	public IBuscadorMuestras getSegundoBuscador() {
 		return this.segundoBuscador;
 	}
 
@@ -40,16 +40,5 @@ public class BuscadorAnd extends BuscadorMuestras{
 		
 	}
 
-	@Override
-	public void agregarBuscador(BuscadorMuestras buscadorMuestras) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void quitarBuscador(BuscadorMuestras buscadorMuestras) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

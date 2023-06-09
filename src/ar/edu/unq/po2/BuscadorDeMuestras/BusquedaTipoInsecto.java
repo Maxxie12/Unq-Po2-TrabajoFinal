@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 import ar.edu.unq.po2.Muestra.Muestra;
 
-public class BusquedaTipoInsecto extends BuscadorMuestras{
+public class BusquedaTipoInsecto implements IBuscadorMuestras{
 
 	
 	public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar, String tipoInsecto) {
@@ -27,16 +27,5 @@ public class BusquedaTipoInsecto extends BuscadorMuestras{
         return resultado;
 	}
 
-	@Override
-	public void agregarBuscador(BuscadorMuestras buscadorMuestras) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void quitarBuscador(BuscadorMuestras buscadorMuestras) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
