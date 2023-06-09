@@ -25,7 +25,7 @@ public class Sistema {
 		int cantidadDeOpiniones = 0;
 	}
 	
-	private void catalagarMuestra(Muestra muestra) {  // mandarlo al state
+	private void catalogarMuestra(Muestra muestra) {  // mandarlo al state
 		this.muestras.stream().forEach(muestra -> muestra.catalogar());
 	}
 }
