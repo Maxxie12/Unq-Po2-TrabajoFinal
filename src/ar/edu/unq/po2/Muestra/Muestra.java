@@ -3,7 +3,6 @@ package ar.edu.unq.po2.Muestra;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import ar.edu.unq.po2.TrabajoFinal.Foto;
 import ar.edu.unq.po2.TrabajoFinal.Ubicacion;
 import ar.edu.unq.po2.Usuario.Usuario;
 
