@@ -9,16 +9,18 @@ import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.Muestra.OpinionImagen;
 
 public class BusquedaTipoInsecto implements IBuscadorMuestras{
+	
+	String insectoABuscar;
 
 	
-	public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar, String tipoInsecto) {
+	public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar) {
 		List<Muestra> resultado = new ArrayList<>();
 
-        String patron = "\\b" + tipoInsecto + "\\b"; // Patrón de búsqueda para buscar el tipo de insecto exacto (ignorando mayúsculas y minúsculas)
+        String patron = "\\b" + insectoABuscar + "\\b"; // Patrón de búsqueda para buscar el tipo de insecto exacto (ignorando mayúsculas y minúsculas)
         Pattern pattern = Pattern.compile(patron, Pattern.CASE_INSENSITIVE);
 
         for (Muestra muestra : muestrasAFiltrar) {
-            String insectoMuestra = muestra.getOpinionActual().name();
+            String insectoMuestra = muestra.getTipoInsecto().name();
             Matcher matcher = pattern.matcher(insectoMuestra);
             if (matcher.find()) {
                 resultado.add(muestra);
@@ -28,5 +30,9 @@ public class BusquedaTipoInsecto implements IBuscadorMuestras{
         return resultado;
 	}
 
+	
+	public 	void setInsectoABuscar (String insectoABuscar){
+	 	this.insectoABuscar = insectoABuscar;
+	}
 
 }
