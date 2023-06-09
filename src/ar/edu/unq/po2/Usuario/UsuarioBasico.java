@@ -17,5 +17,4 @@ public class UsuarioBasico extends EstadoUsuario{
 		this.getUser().cambiarEstado(new UsuarioExperto());
 	}
 
-	
 }

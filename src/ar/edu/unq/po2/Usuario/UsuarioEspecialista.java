@@ -1,10 +1,8 @@
-package ar.edu.unq.po2.TrabajoFinal;
+package ar.edu.unq.po2.Usuario;
 
 import java.util.ArrayList;
 
-import ar.edu.unq.po2.Usuario.EstadoUsuario;
-import ar.edu.unq.po2.Usuario.Usuario;
-import ar.edu.unq.po2.Usuario.UsuarioExperto;
+import ar.edu.unq.po2.Muestra.Opinion;
 
 public class UsuarioEspecialista extends Usuario{
 	EstadoUsuario estado = new UsuarioExperto();
