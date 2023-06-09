@@ -10,7 +10,7 @@ import ar.edu.unq.po2.Usuario.Usuario;
 public class Muestra {
     private Ubicacion 			ubicacion;
     private Usuario 			usuario;
-    private OpinionImagen       opinionActual;
+    private OpinionImagen       tipoInsecto;
     private LocalDate			fecha;
     private ArrayList<Opinion> 	opiniones; 
     private EstadoMuestra       estado;
@@ -20,7 +20,7 @@ public class Muestra {
     	this.ubicacion = ubicacion;
     	this.usuario = usuario;
     	this.opiniones = new ArrayList<Opinion>();
-    	this.opinionActual = opinion.getOpinion();
+    	this.tipoInsecto = opinion.getOpinion();
     	this.estado = new MuestraNoVerificada();
     	this.opiniones.add(opinion);
     }
@@ -45,6 +45,11 @@ public class Muestra {
 	
 	private void cambiarEstado(EstadoMuestra nuevoEstado) {
 		this.estado = nuevoEstado;
+	}
+
+
+	public OpinionImagen getTipoInsecto() {
+		return tipoInsecto;
 	}
 	
 }

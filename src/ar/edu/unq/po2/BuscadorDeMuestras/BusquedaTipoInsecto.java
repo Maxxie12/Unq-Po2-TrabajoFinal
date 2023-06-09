@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import ar.edu.unq.po2.Muestra.Muestra;
+import ar.edu.unq.po2.Muestra.OpinionImagen;
 
 public class BusquedaTipoInsecto implements IBuscadorMuestras{
 
@@ -17,8 +18,8 @@ public class BusquedaTipoInsecto implements IBuscadorMuestras{
         Pattern pattern = Pattern.compile(patron, Pattern.CASE_INSENSITIVE);
 
         for (Muestra muestra : muestrasAFiltrar) {
-            String tipoMuestra = muestra.getTipoInsecto();
-            Matcher matcher = pattern.matcher(tipoMuestra);
+            String insectoMuestra = muestra.getOpinionActual().name();
+            Matcher matcher = pattern.matcher(insectoMuestra);
             if (matcher.find()) {
                 resultado.add(muestra);
             }
