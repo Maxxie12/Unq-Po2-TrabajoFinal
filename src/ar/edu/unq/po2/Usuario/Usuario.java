@@ -1,7 +1,6 @@
 package ar.edu.unq.po2.Usuario;
 
 import java.util.ArrayList;
-
 import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.Muestra.Opinion;
 import ar.edu.unq.po2.TrabajoFinal.Sistema;
@@ -11,19 +10,16 @@ public class Usuario {
 	private int    id;
 	private String userName;
 	private EstadoUsuario state;
-	private ArrayList<Opinion> opiniones;
+	private ArrayList<Opinion> opiniones; // habiamos quedado en que las guardaban las muestras, no los usuarios?
 	
 	
-	public Usuario(int id, String username, EstadoUsuario state) {
+	public Usuario(int id, String username) {
 		this.setId(id);
 		this.setUserName(username);
-		this.setState(state);
+		this.setState(new UsuarioBasico());
 		this.setOpiniones(new ArrayList<Opinion>());
 	}
 	
-	public Usuario() {
-		
-	}
 	
 	public int getId() {
 		return id;
@@ -57,22 +53,29 @@ public class Usuario {
 		this.opiniones = opiniones;
 	}
 
-
+	// el usuario esta agregando la opinion
 	public void darOpinion(Muestra muestra, Opinion opinion) {
-		muestra.getOpiniones().add(opinion);	
+		muestra.getOpiniones().add(opinion);
+		// muestra.agregarOpinion(opinion);
 	}
 	
 	public void enviarMuestra(Muestra muestra, Sistema sistema) {
 		sistema.agregarMuestra(muestra);
 	}
 		
-	public void cambiarEstado() {
-		state.setState();
-	}
 	
 	public void cambiarEstado(EstadoUsuario state) {
 		this.state = state;
 		state.setUser(this);
+	}
+
+	public void actualizarEstado(int cantMuestrasEnviadas, int cantMuestrasOpinadas) {
+		state.actualizarEstado(cantMuestrasEnviadas, cantMuestrasOpinadas);
+	}
+
+
+	public Boolean esExperto() {
+		return state.esExperto();
 	}
 		
 }

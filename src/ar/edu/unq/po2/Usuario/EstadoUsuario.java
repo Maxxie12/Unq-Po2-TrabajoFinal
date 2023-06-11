@@ -12,5 +12,9 @@ public abstract class EstadoUsuario {
 	protected Usuario getUser() {
 		return this.user;
 	}
+
+	protected abstract void actualizarEstado(int cantMuestrasEnviadas, int cantMuestrasOpinadas);
+
+	protected abstract Boolean esExperto();
 	
 }

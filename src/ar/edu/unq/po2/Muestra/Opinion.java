@@ -1,16 +1,16 @@
 package ar.edu.unq.po2.Muestra;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import ar.edu.unq.po2.Usuario.Usuario;
 
 public class Opinion {
 	private  OpinionImagen opinion;
-	private  Date fechaPublicacion;
+	private  LocalDate fechaPublicacion;
 	private  Usuario usuario;
 	
 	
-	public Date getFechaPublicacion() {
+	public LocalDate getFechaPublicacion() {
 		return fechaPublicacion;
 	}
 	
@@ -22,8 +22,12 @@ public class Opinion {
 		this.opinion = opinion;
 	}
 
-	public void setFechaPublicacion(Date fechaPublicacion) {
+	public void setFechaPublicacion(LocalDate fechaPublicacion) {
 		this.fechaPublicacion = fechaPublicacion;
+	}
+	
+	public Usuario getUsuario() {
+		return this.usuario;
 	}
 	
 }

@@ -16,5 +16,19 @@ public class UsuarioBasico extends EstadoUsuario{
 	public void setState() {
 		this.getUser().cambiarEstado(new UsuarioExperto());
 	}
+	
+	// remove Override notation
+	protected void actualizarEstado(int cantMuestrasEnviadas, int cantMuestrasOpinadas) {
+		if (cantMuestrasEnviadas > 20 && cantMuestrasOpinadas > 10) {
+			this.setState();
+		}
+		
+	}
+
+	@Override
+	protected Boolean esExperto() {
+		return false;
+		
+	}
 
 }

@@ -16,17 +16,33 @@ public class Sistema {
 		this.muestras.add(muestra);
 	}
 	
-	private void actualizarUsuarios(){
-		this.usuarios.stream().forEach(usuario -> this.catalogar(usuario));
+	public ArrayList<Muestra> getMuestras() {
+		return muestras;
 	}
-	
-	private void catalogar(Usuario usuario) { // hay que terminar la idea de opinion
-		int cantidadDeMuestrasUsuario = 0;
-		int cantidadDeOpiniones = 0;
+
+	public void setMuestras(ArrayList<Muestra> muestras) {
+		this.muestras = muestras;
 	}
-	
-	private void catalogarMuestra(Muestra muestra) {  // mandarlo al state
-		this.muestras.stream().forEach(muestra -> muestra.catalogar());
+
+	public ArrayList<Usuario> getUsuarios() {
+		return usuarios;
 	}
+
+	public ArrayList<ZonaDeCobertura> getZonasDeCobertura() {
+		return zonasDeCobertura;
+	}
+
+	public void setZonasDeCobertura(ArrayList<ZonaDeCobertura> zonasDeCobertura) {
+		this.zonasDeCobertura = zonasDeCobertura;
+	}
+
+	public ArrayList<Organizacion> getOrganizaciones() {
+		return organizaciones;
+	}
+
+	public void setOrganizaciones(ArrayList<Organizacion> organizaciones) {
+		this.organizaciones = organizaciones;
+	}
+
 }
 

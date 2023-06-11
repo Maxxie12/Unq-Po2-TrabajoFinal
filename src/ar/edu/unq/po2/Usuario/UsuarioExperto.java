@@ -5,5 +5,17 @@ public class UsuarioExperto extends EstadoUsuario{
 	public void setState() {
 		this.user.cambiarEstado(new UsuarioBasico());
 	}
+
+	@Override
+	protected void actualizarEstado(int cantMuestrasEnviadas, int cantMuestrasOpinadas) {
+		if (cantMuestrasEnviadas <= 10 || cantMuestrasOpinadas < 20) {
+			this.setState();
+		}
+	}
+
+	@Override
+	protected Boolean esExperto() {
+		return true;
+	}
    
 }
