@@ -20,7 +20,7 @@ public class ClasificadorDeUsuarios {
 	public void clasificarUsuario(Usuario usuario) {
 		LocalDate fechaDehoy = null;
 		fechaDehoy.now();
-	    ArrayList <Muestra> muestras = (ArrayList<Muestra>) this.sistema.getMuestras().stream().filter(muestra -> muestra.getUsuario().equals(usuario) && muestra.getFecha().isAfter(fechaDehoy.minusDays(30)));
+	    ArrayList <Muestra> muestras = (ArrayList<Muestra>) this.sistema.getMuestras().stream().filter(muestra -> muestra.getUsuario().equals(usuario) && muestra.getFechaCreacion().isAfter(fechaDehoy.minusDays(30)));
 	    // ArrayList<Opinion> opinionesDeMuestras = this.opinionesDeUsuario(usuario);
 	   this.clasificarUsuarioPor(muestras, opinionesDeMuestras(usuario), usuario);
 	}
