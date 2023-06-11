@@ -8,6 +8,7 @@ import ar.edu.unq.po2.Muestra.Muestra;
 
 public class BusquedaNivelVerificacion implements IBuscadorMuestras{
 	
+	
 
 	@Override
 	public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar) {

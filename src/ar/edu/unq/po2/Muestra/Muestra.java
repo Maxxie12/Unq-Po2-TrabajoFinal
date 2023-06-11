@@ -48,6 +48,9 @@ public class Muestra {
 		this.estado = nuevoEstado;
 	}
 
+	public EstadoMuestra getEstadoMuestra() {
+		return this.estado;
+	}
 
 	public OpinionImagen getTipoInsecto() {
 		return tipoInsecto;
