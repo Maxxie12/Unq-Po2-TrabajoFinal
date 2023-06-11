@@ -11,7 +11,7 @@ public class Muestra {
     private Ubicacion 			ubicacion;
     private Usuario 			usuario;
     private OpinionImagen       tipoInsecto;
-    private LocalDate			fecha;
+    private LocalDate			fechaCreacion;
     private ArrayList<Opinion> 	opiniones; 
     private EstadoMuestra       estado;
     
@@ -23,7 +23,7 @@ public class Muestra {
     	this.tipoInsecto = opinion.getOpinion();
     	this.estado = new MuestraNoVerificada(this);
     	this.opiniones.add(opinion);
-    	this.fecha.now();
+    	this.fechaCreacion.now();
     }
     
 	
@@ -36,8 +36,8 @@ public class Muestra {
 	}
 	
 	
-	public LocalDate getFecha (){
-		return fecha;
+	public LocalDate getFechaCreacion (){
+		return fechaCreacion;
 	}
 	
 	public ArrayList<Opinion> getOpiniones() {
