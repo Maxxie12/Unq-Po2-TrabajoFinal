@@ -1,7 +1,6 @@
 package ar.edu.unq.po2.BuscadorDeMuestras;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +13,7 @@ public class BusquedaFechaUltimaOpinion implements IBuscadorMuestras {
 	public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar) {
 		 return muestrasAFiltrar.stream()
 	                .filter(muestra -> muestra.getOpiniones().stream()
-	                        .anyMatch(opinion -> opinion.getFechaPublicacion().isAfter(fecha)))
+	                .anyMatch(opinion -> opinion.getFechaPublicacion().isAfter(fecha)))
 	                .collect(Collectors.toList());
 	    }
 		
@@ -23,6 +22,7 @@ public class BusquedaFechaUltimaOpinion implements IBuscadorMuestras {
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
+
 
 
 }
