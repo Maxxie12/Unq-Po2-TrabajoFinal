@@ -5,10 +5,6 @@ public abstract class EstadoUsuario {
 	
 	public abstract void setState();
 	
-	public void setUser(Usuario user) {
-		this.user = user;
-	}
-	
 	protected Usuario getUser() {
 		return this.user;
 	}

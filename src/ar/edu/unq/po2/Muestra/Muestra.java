@@ -3,7 +3,7 @@ package ar.edu.unq.po2.Muestra;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.stream.Stream;
-
+import java.util.*;
 import ar.edu.unq.po2.TrabajoFinal.Ubicacion;
 import ar.edu.unq.po2.Usuario.Usuario;
 
@@ -74,18 +74,34 @@ public class Muestra {
 		return (ArrayList<Opinion>) this.opiniones.stream().filter(opinion -> opinion.getUsuario().esExperto());
 	}
 	
-	public void actualizarOpinionActual() {
+	public void actualizarOpinion(){
 		// inicializar contadores para cada opinion y recorrer todo con un for?
 		ArrayList<OpinionImagen> opinionesDeImagen = new ArrayList<OpinionImagen>();
 		this.getOpiniones().stream().forEach(opinion -> opinionesDeImagen.add(opinion.getOpinion()));
-		this.actualizarSegunOpinionMayoritaria(opinionesDeImagen);
+		this.actualizarOpinionActual(opinionesDeImagen);
 	}
-
-
-	public void actualizarSegunOpinionMayoritaria(ArrayList<OpinionImagen> opinionesDeImagen) {
-		
-	}
-
 	
+
+    public void  actualizarOpinionActual(List<OpinionImagen> opiniones){
+        HashMap<OpinionImagen, Integer> recuento = new HashMap<>();
+
+        for (OpinionImagen opinion : opiniones) {
+            recuento.put(opinion, recuento.getOrDefault(opinion, 0) + 1);
+        }
+
+        OpinionImagen opinionConMayorCantidad = null;
+        int cantidadMaxima = 0;
+
+        for (Map.Entry<OpinionImagen, Integer> entry : recuento.entrySet()) {
+        	OpinionImagen opinion = entry.getKey();
+            int cantidad = entry.getValue();
+
+            if (cantidad > cantidadMaxima) {
+                cantidadMaxima = cantidad;
+                opinionConMayorCantidad = opinion;
+            }
+        }
+        this.tipoInsecto = opinionConMayorCantidad;
+	}
 }
 

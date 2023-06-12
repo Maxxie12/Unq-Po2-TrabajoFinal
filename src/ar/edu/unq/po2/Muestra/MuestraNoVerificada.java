@@ -14,7 +14,7 @@ public class MuestraNoVerificada extends EstadoMuestra{
 
 	public void agregarOpinion(Opinion opinion) {
 		this.muestra.agregarOpinion(opinion);
-		this.muestra.actualizarOpinionActual();
+		this.muestra.actualizarOpinion();
 	}
 
 }

@@ -2,22 +2,15 @@ package ar.edu.unq.po2.Usuario;
 
 public class UsuarioBasico extends EstadoUsuario{
 
-	private Usuario user;
-	
-	public Usuario getUser() {
-		return this.user;
-	}
-
-	public void setUser(Usuario user) {
-		this.user = user;
+	public UsuarioBasico(Usuario usuario) {
+		this.user = usuario;
 	}
 
 	@Override
 	public void setState() {
-		this.getUser().cambiarEstado(new UsuarioExperto());
+		this.getUser().cambiarEstado(new UsuarioExperto(this.user));
 	}
 	
-	// remove Override notation
 	protected void actualizarEstado(int cantMuestrasEnviadas, int cantMuestrasOpinadas) {
 		if (cantMuestrasEnviadas > 20 && cantMuestrasOpinadas > 10) {
 			this.setState();
@@ -28,7 +21,6 @@ public class UsuarioBasico extends EstadoUsuario{
 	@Override
 	protected Boolean esExperto() {
 		return false;
-		
 	}
 
 }

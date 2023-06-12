@@ -2,8 +2,12 @@ package ar.edu.unq.po2.Usuario;
 
 public class UsuarioExperto extends EstadoUsuario{
 
+	public UsuarioExperto(Usuario user) {
+		this.user = user;
+	}
+
 	public void setState() {
-		this.user.cambiarEstado(new UsuarioBasico());
+		this.user.cambiarEstado(new UsuarioBasico(this.getUser()));
 	}
 
 	@Override
