@@ -1,9 +1,9 @@
 package ar.edu.unq.po2.Muestra;
 
-public class MuestraVerificada extends EstadoMuestra{
+public class MuestraVerificada implements EstadoMuestra{
 
 	@Override
-	protected boolean esVerificada() {
+	public boolean esVerificada() {
 		return true;
 	}
 	
