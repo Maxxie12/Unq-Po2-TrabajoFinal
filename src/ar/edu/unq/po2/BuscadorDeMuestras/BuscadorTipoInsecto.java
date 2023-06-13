@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.Muestra.OpinionImagen;
 
-public class BusquedaTipoInsecto implements IBuscadorMuestras{
+public class BuscadorTipoInsecto implements IBuscadorMuestras{
 	
 	String insectoABuscar;
 

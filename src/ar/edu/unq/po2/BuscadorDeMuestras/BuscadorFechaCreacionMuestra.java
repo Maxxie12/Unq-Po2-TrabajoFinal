@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import ar.edu.unq.po2.Muestra.Muestra;
 
-public class BusquedaFechaCreacionMuestra implements IBuscadorMuestras {
+public class BuscadorFechaCreacionMuestra implements IBuscadorMuestras {
 
 		LocalDate fecha;
 

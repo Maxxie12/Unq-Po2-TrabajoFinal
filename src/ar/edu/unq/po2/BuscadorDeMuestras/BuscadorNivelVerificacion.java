@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import ar.edu.unq.po2.Muestra.EstadoMuestra;
 import ar.edu.unq.po2.Muestra.Muestra;
 
-public class BusquedaNivelVerificacion implements IBuscadorMuestras{
+public class BuscadorNivelVerificacion implements IBuscadorMuestras{
 	
 	private EstadoMuestra estadoMuestraABuscar;
 
