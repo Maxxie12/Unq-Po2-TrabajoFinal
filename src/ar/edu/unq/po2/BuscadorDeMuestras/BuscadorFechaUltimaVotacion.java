@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import ar.edu.unq.po2.Muestra.Muestra;
 
-public class BuscadorFechaUltimaOpinion implements IBuscadorMuestras {
+public class BuscadorFechaUltimaVotacion implements IBuscadorMuestras {
 	
 	private LocalDate fecha;
 
