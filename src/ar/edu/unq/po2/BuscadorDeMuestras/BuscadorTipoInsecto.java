@@ -10,7 +10,7 @@ import ar.edu.unq.po2.Muestra.OpinionImagen;
 
 public class BuscadorTipoInsecto implements IBuscadorMuestras{
 	
-	String insectoABuscar;
+public	String insectoABuscar;
 
 	
 	public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar) {

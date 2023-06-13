@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.BuscadorDeMuestras.Test;
+package ar.edu.unq.po2.BuscadorDeMuestrasTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;

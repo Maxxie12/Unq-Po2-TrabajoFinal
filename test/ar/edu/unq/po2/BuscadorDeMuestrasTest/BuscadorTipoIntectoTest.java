@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.BuscadorDeMuestras.Test;
+package ar.edu.unq.po2.BuscadorDeMuestrasTest;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -30,7 +30,7 @@ public class BuscadorTipoIntectoTest {
 	
 	 
 		@BeforeEach
-	    void setUp() { 
+			void setUp() { 
 			when(muestra1.getTipoInsecto()).thenReturn(OpinionImagen.VINCHUCA_GUASAYANA);
 		  	when(muestra2.getTipoInsecto()).thenReturn(OpinionImagen.VINCHUCA_INFESTANS);
 		  	when(muestra3.getTipoInsecto()).thenReturn(OpinionImagen.CHINCHE_FOLIADA);
@@ -46,18 +46,18 @@ public class BuscadorTipoIntectoTest {
 	    }
 	   
 	    @Test
-	    void testBuscadorTipoBichoVinchuca(){   
+	  public void testBuscadorTipoBichoVinchuca(){   
 	    	
 	    	buscadorTipoInsecto.setInsectoABuscar("Vinchuca");
 	    	
-	    	assertTrue(buscadorTipoInsecto.filtrar(muestrasAFiltrar).contains(muestra2));
 	    	assertTrue(buscadorTipoInsecto.filtrar(muestrasAFiltrar).contains(muestra1));
-	    	assertFalse(buscadorTipoInsecto.filtrar(muestrasAFiltrar).contains(muestra3));
+	    	assertTrue(buscadorTipoInsecto.filtrar(muestrasAFiltrar).contains(muestra2));
 	    	assertTrue(buscadorTipoInsecto.filtrar(muestrasAFiltrar).contains(muestra4));
+	    	assertFalse(buscadorTipoInsecto.filtrar(muestrasAFiltrar).contains(muestra3));
 	    }
 
 	    @Test
-	    void testBuscadorTipoBichoCucaracha(){
+	   public void testBuscadorTipoBichoCucaracha(){
 	    	buscadorTipoInsecto.setInsectoABuscar("Cucaracha");
 
 	    	assertFalse(buscadorTipoInsecto.filtrar(muestrasAFiltrar).size()>0);
@@ -66,7 +66,6 @@ public class BuscadorTipoIntectoTest {
 		 
 
 		
-		
-	 }
-
 }
+
+
