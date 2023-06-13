@@ -13,7 +13,7 @@ public class Muestra {
     private OpinionImagen       tipoInsecto;
     private LocalDate			fechaCreacion;
     private ArrayList<Opinion> 	opiniones; 
-    private EstadoMuestra       estado;
+    private IEstadoMuestra       estado;
     
     
     public Muestra(Ubicacion ubicacion, Usuario usuario, Opinion opinion) {
@@ -44,11 +44,11 @@ public class Muestra {
 		return opiniones;
 	}
 	
-	public void cambiarEstado(EstadoMuestra nuevoEstado) {
+	public void cambiarEstado(IEstadoMuestra nuevoEstado) {
 		this.estado = nuevoEstado;
 	}
 
-	public EstadoMuestra getEstadoMuestra() {
+	public IEstadoMuestra getEstadoMuestra() {
 		return this.estado;
 	}
 

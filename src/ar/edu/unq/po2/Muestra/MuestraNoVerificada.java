@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.Muestra;
 
-public class MuestraNoVerificada implements EstadoMuestra{
+public class MuestraNoVerificada implements IEstadoMuestra{
 	Muestra muestra;
 
 	public MuestraNoVerificada(Muestra muestra) {

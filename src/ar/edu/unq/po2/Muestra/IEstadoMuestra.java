@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.Muestra;
 
-public interface EstadoMuestra {
+public interface IEstadoMuestra {
 	
 	public abstract boolean esVerificada();
 

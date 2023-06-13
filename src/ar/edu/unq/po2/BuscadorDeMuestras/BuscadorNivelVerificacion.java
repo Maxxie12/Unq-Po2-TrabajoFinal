@@ -3,14 +3,14 @@ package ar.edu.unq.po2.BuscadorDeMuestras;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import ar.edu.unq.po2.Muestra.EstadoMuestra;
+import ar.edu.unq.po2.Muestra.IEstadoMuestra;
 import ar.edu.unq.po2.Muestra.Muestra;
 
 public class BuscadorNivelVerificacion implements IBuscadorMuestras{
 	
-	private EstadoMuestra estadoMuestraABuscar;
+	private IEstadoMuestra estadoMuestraABuscar;
 
-	    public void setEstadoMuestraABuscar(EstadoMuestra estadoMuestraABuscar) {
+	    public void setEstadoMuestraABuscar(IEstadoMuestra estadoMuestraABuscar) {
 	        this.estadoMuestraABuscar = estadoMuestraABuscar;
 	    }
 

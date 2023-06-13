@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.Muestra;
 
-public class MuestraVerificada implements EstadoMuestra{
+public class MuestraVerificada implements IEstadoMuestra{
 
 	@Override
 	public boolean esVerificada() {
