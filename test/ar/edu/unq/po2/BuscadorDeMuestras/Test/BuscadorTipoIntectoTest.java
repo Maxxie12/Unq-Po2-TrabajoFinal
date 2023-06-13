@@ -1,4 +1,5 @@
-package ar.edu.unq.po2.BuscadorDeMuestrasTest;
+package ar.edu.unq.po2.BuscadorDeMuestras.Test;
+
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -8,8 +9,8 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import ar.edu.unq.po2.BuscadorDeMuestras.BuscadorTipoInsecto;
@@ -21,12 +22,13 @@ public class BuscadorTipoIntectoTest {
 	List<Muestra> muestrasAFiltrar = new ArrayList<Muestra>();
 	BuscadorTipoInsecto buscadorTipoInsecto;  
 	
-	
-		@Mock
-		  Muestra  muestra1 = mock(Muestra.class);
-		  Muestra  muestra2 = mock(Muestra.class);
-		  Muestra  muestra3 = mock(Muestra.class);
-	      Muestra  muestra4 = mock(Muestra.class);
+	  @Mock
+	  Muestra  muestra1 = mock(Muestra.class);
+	  Muestra  muestra2 = mock(Muestra.class);
+	  Muestra  muestra3 = mock(Muestra.class);
+      Muestra  muestra4 = mock(Muestra.class);
+      
+      
 	
 	 
 		@BeforeEach
@@ -41,26 +43,28 @@ public class BuscadorTipoIntectoTest {
 			muestrasAFiltrar.add(muestra2);     
 			muestrasAFiltrar.add(muestra3);
 			muestrasAFiltrar.add(muestra4);
-			
-			buscadorTipoInsecto = new BuscadorTipoInsecto();
 	    }
 	   
 	    @Test
-	  public void testBuscadorTipoBichoVinchuca(){   
-	    	
-	    	buscadorTipoInsecto.setInsectoABuscar("Vinchuca");
-	    	
-	    	assertTrue(buscadorTipoInsecto.filtrar(muestrasAFiltrar).contains(muestra1));
-	    	assertTrue(buscadorTipoInsecto.filtrar(muestrasAFiltrar).contains(muestra2));
-	    	assertTrue(buscadorTipoInsecto.filtrar(muestrasAFiltrar).contains(muestra4));
-	    	assertFalse(buscadorTipoInsecto.filtrar(muestrasAFiltrar).contains(muestra3));
+	  public void testBuscadorTipoInsectoVinchuca(){   
+	    	buscadorTipoInsecto = new BuscadorTipoInsecto();
+	    	buscadorTipoInsecto.setInsectoABuscar("vinchuca");
+	    	List<Muestra> resultadoFiltrado = buscadorTipoInsecto.filtrar(muestrasAFiltrar);
+
+	    	    assertTrue(resultadoFiltrado.contains(muestra1));
+	    	    assertTrue(resultadoFiltrado.contains(muestra2));
+	    	    assertTrue(resultadoFiltrado.contains(muestra4));
+	    	    assertFalse(resultadoFiltrado.contains(muestra3));
 	    }
 
 	    @Test
-	   public void testBuscadorTipoBichoCucaracha(){
+	   public void testBuscadorTipoInsectoCucaracha(){
+	    	buscadorTipoInsecto = new BuscadorTipoInsecto();
 	    	buscadorTipoInsecto.setInsectoABuscar("Cucaracha");
+	    	List<Muestra> resultadoFiltrado = buscadorTipoInsecto.filtrar(muestrasAFiltrar);
 
-	    	assertFalse(buscadorTipoInsecto.filtrar(muestrasAFiltrar).size()>0);
+
+	    	assertFalse(resultadoFiltrado.size()>0);
 	    }
 		 
 		 
