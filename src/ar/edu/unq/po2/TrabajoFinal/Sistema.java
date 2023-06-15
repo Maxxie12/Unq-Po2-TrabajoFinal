@@ -3,6 +3,8 @@ package ar.edu.unq.po2.TrabajoFinal;
 import java.util.ArrayList;
 
 import ar.edu.unq.po2.Muestra.Muestra;
+import ar.edu.unq.po2.Organizacion.Organizacion;
+import ar.edu.unq.po2.Organizacion.ZonaDeCobertura;
 import ar.edu.unq.po2.Usuario.Usuario;
 
 public class Sistema {

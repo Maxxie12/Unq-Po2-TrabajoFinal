@@ -9,6 +9,12 @@ public class Opinion {
 	private  LocalDate fechaPublicacion;
 	private  Usuario usuario;
 	
+	public Opinion(Usuario usuario) {
+		// this.opinion = opinion;
+		this.fechaPublicacion.now();
+		this.usuario = usuario;
+	}
+	
 	
 	public LocalDate getFechaPublicacion() {
 		return fechaPublicacion;
