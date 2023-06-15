@@ -70,41 +70,43 @@ public class ZonaDeCobertura {
 	}
 	
 
-	public int diametro() {
-		return this.radioEnKm * 2;
-	}
 
 
-	public void suscribirAValidacion(Organizacion organizacion) {
+	public void suscribirAValidacion(ObserverZonaCobertura organizacion) {
 		this.getSubscritosAValidacion().add(organizacion);
 		
 	}
 
 
-	public void suscribirACarga(Organizacion organizacion) {
+	public void suscribirACarga(ObserverZonaCobertura organizacion) {
 		this.getSubscritosACarga().add(organizacion);
 		
 	}
 
 
-	public void desuscribirDeValidacion(Organizacion organizacion) {
+	public void desuscribirDeValidacion(ObserverZonaCobertura organizacion) {
 		this.getSubscritosAValidacion().remove(organizacion);
 		
 	}
 
 
-	public void desuscribirDeCarga(Organizacion organizacion) {
+	public void desuscribirDeCarga(ObserverZonaCobertura organizacion) {
 		this.getSubscritosACarga().remove(organizacion);
 		
 	}
 	
 	
-	
+	/* se solapan si las distancias entre las zonas es
+	 * menor o igual a la suma de sus radios
+	 */
 	public List<ZonaDeCobertura> zonasSolapadas(List<ZonaDeCobertura> zonasAComparar) {
 	    List<ZonaDeCobertura> zonasSolapadas = new ArrayList<>();
 
 	    for (ZonaDeCobertura zona : zonasAComparar) {
-	        if (this.getRadioEnKm() > this.getEpicentro().distanciaEntre(zona.getEpicentro())) {
+	        double distancia = this.epicentro.distanciaEntre(zona.epicentro);
+	        double distanciaLimite = this.radioEnKm + zona.radioEnKm;
+
+	        if (distancia <= distanciaLimite) {
 	            zonasSolapadas.add(zona);
 	        }
 	    }
@@ -116,22 +118,22 @@ public class ZonaDeCobertura {
 	
 	public void agregarMuestra(Muestra muestra) {
 			this.getMuestrasEnZona().add(muestra);
-			this.notificarCargaDeMuestra(this, muestra);
+			this.notificarCargaDeMuestra( muestra);
 	}
 	
 	
 	
-	public void notificarCargaDeMuestra(ZonaDeCobertura zonaDeCobertura, Muestra muestra) {
+	public void notificarCargaDeMuestra( Muestra muestra) {
 	    for (ObserverZonaCobertura observer : this.getSubscritosACarga()) {
-	        observer.nuevaCargaMuestra(zonaDeCobertura, muestra);
+	        observer.nuevaCargaMuestra(this, muestra);
 	    }
 	   
 	   
 	}
 
-	public void notificarValidacionDeMuestra(ZonaDeCobertura zonaDeCobertura, Muestra muestra) {
+	public void notificarValidacionDeMuestra( Muestra muestra) {
 	    for (ObserverZonaCobertura observer : this.getSubscritosAValidacion()) {
-	        observer.nuevaValidacionMuestra(zonaDeCobertura, muestra);
+	        observer.nuevaValidacionMuestra(this, muestra);
 	    }
 	}
 
