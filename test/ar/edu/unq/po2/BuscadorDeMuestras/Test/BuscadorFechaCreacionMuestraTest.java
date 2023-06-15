@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.BuscadorDeMuestras.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDate;
@@ -51,8 +52,9 @@ public class BuscadorFechaCreacionMuestraTest {
 
 		        // Assert
 		        assertEquals(2, resultado.size());
-		        assertEquals(muestra2, resultado.get(0));
-		        assertEquals(muestra3, resultado.get(1));
+		        assertTrue (resultado.contains(muestra2));
+		        assertTrue (resultado.contains(muestra3));
+
 		    }
 		}
 

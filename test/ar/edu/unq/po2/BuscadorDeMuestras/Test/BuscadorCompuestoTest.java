@@ -38,6 +38,9 @@ public class BuscadorCompuestoTest {
 
 	@BeforeEach
 	void setUp() {
+		buscadorFechaCreacionMuestra = new BuscadorFechaCreacionMuestra();
+		buscadorTipoInsecto = new BuscadorTipoInsecto();
+		buscadorCompuesto = new BuscadorCompuesto();
 		
 		when(muestra1.getTipoInsecto()).thenReturn(OpinionImagen.VINCHUCA_GUASAYANA);
 	  	when(muestra2.getTipoInsecto()).thenReturn(OpinionImagen.VINCHUCA_INFESTANS);
@@ -58,9 +61,6 @@ public class BuscadorCompuestoTest {
 		
 		buscadorFechaCreacionMuestra.setFecha(fecha);
 		
-		buscadorFechaCreacionMuestra = new BuscadorFechaCreacionMuestra();
-		buscadorTipoInsecto = new BuscadorTipoInsecto();
-		buscadorCompuesto = new BuscadorCompuesto();
 		buscadorCompuesto.addBuscador(this.buscadorTipoInsecto);
 		buscadorCompuesto.addBuscador(this.buscadorFechaCreacionMuestra);
 		
@@ -69,7 +69,8 @@ public class BuscadorCompuestoTest {
 
 	@Test
 	void busquedaAvanzada() {
-		buscadorTipoInsecto.setInsectoABuscar("vinchuca");	    
+		buscadorTipoInsecto.setInsectoABuscar("vinchuca");
+	    
 		assertTrue(buscadorCompuesto.filtrar(muestrasAFiltrar).contains(muestra4));
 	}
 	

@@ -7,33 +7,27 @@ import java.util.stream.Collectors;
 import ar.edu.unq.po2.Muestra.Muestra;
 
 public class BuscadorCompuesto implements IBuscadorMuestras{
-	
-	private List<IBuscadorMuestras> buscadoresMuestras = new ArrayList<IBuscadorMuestras>();
+	    private List<IBuscadorMuestras> buscadoresMuestras = new ArrayList<>();
 
-	@Override
-	public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar) {
-		List<IBuscadorMuestras> buscadoresAAplicar = this.buscadoresMuestras;
-		List<Muestra> resultadosFiltrados = new ArrayList<Muestra>();
+	    @Override
+	    public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar) {
+	        List<Muestra> resultadosFiltrados = new ArrayList<>();
 
-		for (IBuscadorMuestras buscadores : buscadoresAAplicar) {
-			resultadosFiltrados = buscadores.filtrar(muestrasAFiltrar);
+	        for (IBuscadorMuestras buscador : buscadoresMuestras) {
+	            List<Muestra> muestrasFiltradas = buscador.filtrar(muestrasAFiltrar);
+	            resultadosFiltrados.addAll(muestrasFiltradas);
+	        }
 
-		}
+	        return resultadosFiltrados.stream().distinct().collect(Collectors.toList());
+	    }
 
-		return (resultadosFiltrados = resultadosFiltrados.stream().collect(Collectors.toSet()).stream()
-				.collect(Collectors.toList()));
+	    public void addBuscador(IBuscadorMuestras buscadorMuestras) {
+	        buscadoresMuestras.add(buscadorMuestras);
+	    }
 
-	}
-
-	public void addBuscador(IBuscadorMuestras buscadorMuestras) {
-		buscadoresMuestras.add(buscadorMuestras);
-
-	}
-
-	public void removeBuscador(IBuscadorMuestras buscadorMuestras) {
-		buscadoresMuestras.remove(buscadorMuestras);
-	}
-
+	    public void removeBuscador(IBuscadorMuestras buscadorMuestras) {
+	        buscadoresMuestras.remove(buscadorMuestras);
+	    }
 	
 
 }
