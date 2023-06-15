@@ -8,7 +8,7 @@ public class UsuarioBasico extends EstadoUsuario{
 
 	@Override
 	public void setState() {
-		this.getUser().cambiarEstado(new UsuarioExperto(this.user));
+		this.getUser().cambiarEstado(new UsuarioExperto(this.getUser()));
 	}
 	
 	protected void actualizarEstado(int cantMuestrasEnviadas, int cantMuestrasOpinadas) {

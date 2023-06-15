@@ -13,7 +13,7 @@ public class Usuario {
 	public Usuario(int id, String username) {
 		this.id = id;
 		this.userName = username;
-		this.setState(new UsuarioBasico(this));
+		this.state = new UsuarioBasico(this);
 	}
 	
 	
@@ -27,10 +27,6 @@ public class Usuario {
 
 	public EstadoUsuario getState() {
 		return state;
-	}
-
-	public void setState(EstadoUsuario state) {
-		this.state = state;
 	}
 
 	public void darOpinion(Muestra muestra, Opinion opinion) {

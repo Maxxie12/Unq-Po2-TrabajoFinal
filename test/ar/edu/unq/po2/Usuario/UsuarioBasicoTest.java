@@ -1,14 +1,26 @@
 package ar.edu.unq.po2.Usuario;
+import static org.junit.Assert.assertFalse;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 public class UsuarioBasicoTest {
+	UsuarioBasico usuarioBasicoTest;
 	@Mock
 	Usuario usuarioDouble = mock(Usuario.class);
 	UsuarioExperto usuarioExpertoDummy = mock(UsuarioExperto.class);
 	
+	@BeforeEach
+	void setUp() {
+		usuarioBasicoTest = new UsuarioBasico(usuarioDouble);
+	}
+	
 	@Test
 		public void elUsuarioBasicoNoEsExperto() {
-			//setUp
-			UsuarioBasico usuarioBasicoTest = new UsuarioBasico(usuarioDouble);
 			//exercise
 			boolean valorUsuarioEsExperto = usuarioBasicoTest.esExperto();
 			//verify
@@ -17,31 +29,29 @@ public class UsuarioBasicoTest {
 	
 	@Test
 		public void elSetStateCambiaElEstadoDeUsuario() {
-		//setUp
-		UsuarioBasico usuarioBasicoTest = new UsuarioBasico(usuarioDouble);
+		//setup
+		ArgumentCaptor<UsuarioExperto> usuarioCapturado = ArgumentCaptor.forClass(UsuarioExperto.class);
 		//exercise
 		usuarioBasicoTest.setState();
 		//verify
-		Mockito.verify(usuarioDouble).cambiarEstado(usuarioExpertoDummy);
+		Mockito.verify(usuarioDouble).cambiarEstado(usuarioCapturado.capture());
 		}
 	
 	@Test
 	
 		public void elUsuarioBasicoActualizaEstadoSiCumpleCondicion() {
-		//setUp
-		UsuarioBasico usuarioBasicoTest = new UsuarioBasico(usuarioDouble);
+		//setup
+		ArgumentCaptor<UsuarioExperto> usuarioCapturado = ArgumentCaptor.forClass(UsuarioExperto.class);
 		//exercise
-		usuarioBasicoTest.actualizarEstado(11, 21);
+		usuarioBasicoTest.actualizarEstado(21, 11);
 		//verify
-		Mockito.verify(usuarioDouble).cambiarEstado(usuarioExpertoDummy);
+		Mockito.verify(usuarioDouble).cambiarEstado(usuarioCapturado.capture());
 		}
 	
 	@Test
 		public void elUsuarioBasicoNoActualizaEstadoSiNoCumpleCondicion() {
-			//setUp
-			UsuarioBasico usuarioBasicoTest = new UsuarioBasico(usuarioDouble);
 			//exercise
-			usuarioBasicoTest.actualizarEstado(10, 20);
+			usuarioBasicoTest.actualizarEstado(8, 9);
 			//verify
 			Mockito.verify(usuarioDouble, never()).cambiarEstado(usuarioExpertoDummy);
 		}

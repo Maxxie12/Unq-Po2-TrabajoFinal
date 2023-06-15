@@ -28,16 +28,15 @@ public class ClasificadorDeUsuarios {
 	
 	public List<Opinion> opinionesDeMuestras(Usuario usuario){
 		LocalDate fechaDehoy = null;
-		fechaDehoy.now();
 		List <Muestra> muestras = this.sistema.getMuestras();
 		List <Opinion> opiniones = new ArrayList<Opinion>();
 		for(int i = 0; i < muestras.size(); i++){
 			if(!muestras.get(i).elUsuarioNoOpino(usuario)) {
 				opiniones.add(muestras.get(i).opinionDeUsuario(usuario));
 			}
-			
+			 
 		}
-		return opiniones.stream().filter(opinion -> opinion.getFechaPublicacion().isBefore(fechaDehoy.minusDays(30))).toList();
+		return opiniones.stream().filter(opinion -> opinion.getFechaPublicacion().isAfter(fechaDehoy.now().minusDays(30))).toList();
 	}
 	
 	public void clasificarUsuarioPor(List <Muestra> muestras, List<Opinion> opiniones, Usuario usuario) {

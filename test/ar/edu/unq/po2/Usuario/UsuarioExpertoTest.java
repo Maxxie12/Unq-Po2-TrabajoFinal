@@ -1,4 +1,11 @@
 package ar.edu.unq.po2.Usuario;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 public class UsuarioExpertoTest {
 	@Mock
@@ -19,10 +26,11 @@ public class UsuarioExpertoTest {
 		public void elSetStateCambiaElEstadoDeUsuario() {
 		//setUp
 		UsuarioExperto usuarioBasicoTest = new UsuarioExperto(usuarioDouble);
+		ArgumentCaptor<UsuarioExperto> usuarioCapturado = ArgumentCaptor.forClass(UsuarioExperto.class);
 		//exercise
 		usuarioBasicoTest.setState();
 		//verify
-		Mockito.verify(usuarioDouble).cambiarEstado(usuarioBasicoDummy);
+		Mockito.verify(usuarioDouble).cambiarEstado(usuarioCapturado.capture());
 		}
 	
 	@Test
@@ -30,10 +38,11 @@ public class UsuarioExpertoTest {
 		public void elUsuarioBasicoActualizaEstadoSiCumpleCondicion() {
 		//setUp
 		UsuarioExperto usuarioBasicoTest = new UsuarioExperto(usuarioDouble);
+		ArgumentCaptor<UsuarioExperto> usuarioCapturado = ArgumentCaptor.forClass(UsuarioExperto.class);
 		//exercise
 		usuarioBasicoTest.actualizarEstado(10, 20);
 		//verify
-		Mockito.verify(usuarioDouble).cambiarEstado(usuarioBasicoDummy);
+		Mockito.verify(usuarioDouble).cambiarEstado(usuarioCapturado.capture());
 		}
 	
 	@Test

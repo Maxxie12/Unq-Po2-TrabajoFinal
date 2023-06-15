@@ -4,7 +4,7 @@ package ar.edu.unq.po2.Usuario;
 public class UsuarioEspecialista extends Usuario{
 	public UsuarioEspecialista(int id, String username) {
 		super(id, username);
-		this.setState(new UsuarioExperto(this));
+		this.cambiarEstado(new UsuarioExperto(this));
 	}	
 	
 	@Override // 

@@ -1,5 +1,9 @@
 package ar.edu.unq.po2.Usuario;
 
+import static org.junit.Assert.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
 public class UsuarioEspecialistaTest {
 	@Test
 	public void elUsuarioEspecialistaEsExperto() {
