@@ -51,6 +51,8 @@ public class BuscadorCompuestoTest {
         when(muestra1.getFechaCreacion()).thenReturn(LocalDate.of(2021, 12, 31));
         when(muestra2.getFechaCreacion()).thenReturn(LocalDate.of(2022, 2, 1));
         when(muestra3.getFechaCreacion()).thenReturn(LocalDate.of(2022, 1, 2));
+        when(muestra4.getFechaCreacion()).thenReturn(LocalDate.of(1998, 12, 15));
+        
 
 	    
 	
