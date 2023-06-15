@@ -2,6 +2,9 @@ package ar.edu.unq.po2.TrabajoFinal;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
 import ar.edu.unq.po2.Usuario.Usuario;
 import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.Muestra.Opinion;
@@ -14,29 +17,30 @@ public class ClasificadorDeUsuarios {
 	}
 	
 	public void modificarEstadoDeUsuarios(Sistema sistema) {
-		this.sistema.getUsuarios().forEach(usuario -> this.clasificarUsuario(usuario));
+		this.sistema.getUsuarios().forEach(usuario -> this.clasificarUsuarioPor(this.muestrasPublicadasPorUsuario(usuario), this.opinionesDeMuestras(usuario), usuario));
 	}
 	
-	public void clasificarUsuario(Usuario usuario) {
+	public List<Muestra> muestrasPublicadasPorUsuario(Usuario usuario) {
 		LocalDate fechaDehoy = null;
-		fechaDehoy.now();
-	    ArrayList <Muestra> muestras = (ArrayList<Muestra>) this.sistema.getMuestras().stream().filter(muestra -> muestra.getUsuario().equals(usuario) && muestra.getFechaCreacion().isAfter(fechaDehoy.minusDays(30)));
-	    // ArrayList<Opinion> opinionesDeMuestras = this.opinionesDeUsuario(usuario);
-	   this.clasificarUsuarioPor(muestras, opinionesDeMuestras(usuario), usuario);
+	    Stream <Muestra> muestras = this.sistema.getMuestras().stream().filter(muestra -> muestra.getUsuario().equals(usuario) && muestra.getFechaCreacion().isAfter(fechaDehoy.now().minusDays(30)));
+	    return muestras.toList();
 	}
 	
-	public ArrayList<Opinion> opinionesDeMuestras(Usuario usuario){
+	public List<Opinion> opinionesDeMuestras(Usuario usuario){
 		LocalDate fechaDehoy = null;
 		fechaDehoy.now();
-		ArrayList <Muestra> muestras = this.sistema.getMuestras();
-		ArrayList <Opinion> opiniones = new ArrayList<Opinion>();
+		List <Muestra> muestras = this.sistema.getMuestras();
+		List <Opinion> opiniones = new ArrayList<Opinion>();
 		for(int i = 0; i < muestras.size(); i++){
-			opiniones.addAll(muestras.get(i).opinionDeUsuario(usuario)); // se agrega como lista aunque solo sea una opinion por muestra
+			if(!muestras.get(i).elUsuarioNoOpino(usuario)) {
+				opiniones.add(muestras.get(i).opinionDeUsuario(usuario));
+			}
+			
 		}
-		return (ArrayList<Opinion>) opiniones.stream().filter(opinion -> opinion.getFechaPublicacion().isBefore(fechaDehoy.minusDays(30)));
+		return opiniones.stream().filter(opinion -> opinion.getFechaPublicacion().isBefore(fechaDehoy.minusDays(30))).toList();
 	}
 	
-	public void clasificarUsuarioPor(ArrayList <Muestra> muestras, ArrayList<Opinion> opiniones, Usuario usuario) {
+	public void clasificarUsuarioPor(List <Muestra> muestras, List<Opinion> opiniones, Usuario usuario) {
 		usuario.actualizarEstado(muestras.size(), opiniones.size());
 	}
 	

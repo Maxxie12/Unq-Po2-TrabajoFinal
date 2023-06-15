@@ -14,6 +14,7 @@ import org.mockito.Mock;
 
 import ar.edu.unq.po2.BuscadorDeMuestras.BuscadorNivelVerificacion;
 import ar.edu.unq.po2.Muestra.Muestra;
+import ar.edu.unq.po2.Muestra.MuestraVerificada;
 import ar.edu.unq.po2.Muestra.OpinionImagen;
 
 public class BuscadorNivelVerificacionTest {
@@ -26,13 +27,14 @@ public class BuscadorNivelVerificacionTest {
 	  Muestra  muestra2 = mock(Muestra.class);
 	  Muestra  muestra3 = mock(Muestra.class);
       Muestra  muestra4 = mock(Muestra.class);
+      MuestraVerificada muestraVerificada =  mock(MuestraVerificada.class);
       
       
 	
 	 
 		@BeforeEach
 			void setUp() { 
-			when(muestra1.getEstadoMuestra()).thenReturn(esVerificada());
+			when(muestra1.getEstadoMuestra()).thenReturn(muestraVerificada);
 		  	when(muestra2.getEstadoMuestra()).thenReturn(OpinionImagen.VINCHUCA_INFESTANS);
 		  	when(muestra3.getEstadoMuestra()).thenReturn(OpinionImagen.CHINCHE_FOLIADA);
 		  	when(muestra4.getEstadoMuestra()).thenReturn(OpinionImagen.VINCHUCA_SORDIDA);
@@ -47,7 +49,7 @@ public class BuscadorNivelVerificacionTest {
 	    @Test
 	  public void testBuscadorTipoInsectoVinchuca(){   
 	    	buscadorNivelVerificacion = new BuscadorNivelVerificacion();
-	    	buscadorNivelVerificacion.setEstadoMuestraABuscar(IEstadoMuestra Verificada);
+	    	buscadorNivelVerificacion.setEstadoMuestraABuscar(muestraVerificada);
 	    	List<Muestra> resultadoFiltrado = buscadorNivelVerificacion.filtrar(muestrasAFiltrar);
 
 	    	    assertTrue(resultadoFiltrado.contains(muestra1));

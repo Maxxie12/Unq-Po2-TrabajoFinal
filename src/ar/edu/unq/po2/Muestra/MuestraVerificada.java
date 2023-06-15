@@ -8,7 +8,7 @@ public class MuestraVerificada implements IEstadoMuestra{
 	}
 	
 	public void agregarOpinion(Opinion opinion) {
-		System.out.println("La muestra ya ha sido verificada");
+		
 	}
 	
 }

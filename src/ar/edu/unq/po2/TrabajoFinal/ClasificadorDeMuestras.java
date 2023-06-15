@@ -8,8 +8,6 @@ import ar.edu.unq.po2.Muestra.Opinion;
 
 public class ClasificadorDeMuestras {
 	private Sistema sistema;
-	
-	// clasifica state de la muestra
 
 	public void clasificarMuestras() {
 	ArrayList<Muestra> muestrasNoVerificadas = (ArrayList<Muestra>) this.sistema.getMuestras().stream().filter(muestra -> (muestra.esVerificada().equals(false)));

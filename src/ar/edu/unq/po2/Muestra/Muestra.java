@@ -1,10 +1,11 @@
 package ar.edu.unq.po2.Muestra;
 
 import java.time.LocalDate;
+import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 import java.util.*;
-import ar.edu.unq.po2.TrabajoFinal.Ubicacion;
+import ar.edu.unq.po2.Organizacion.Ubicacion;
 import ar.edu.unq.po2.Usuario.Usuario;
 
 public class Muestra {
@@ -16,9 +17,9 @@ public class Muestra {
     private IEstadoMuestra       estado;
     
     
-    public Muestra(Ubicacion ubicacion, Usuario usuario, Opinion opinion) {
+    public Muestra(Ubicacion ubicacion, Opinion opinion) {
     	this.ubicacion = ubicacion;
-    	this.usuario = usuario;
+    	this.usuario = opinion.getUsuario();
     	this.opiniones = new ArrayList<Opinion>();
     	this.tipoInsecto = opinion.getOpinion();
     	this.estado = new MuestraNoVerificada(this);
@@ -34,7 +35,6 @@ public class Muestra {
 	public Usuario getUsuario() {
 		return usuario;
 	}
-	
 	
 	public LocalDate getFechaCreacion (){
 		return fechaCreacion;
@@ -56,12 +56,21 @@ public class Muestra {
 		return tipoInsecto;
 	}
 	
-	public void agregarOpinion(Opinion opinion) {
-		this.estado.agregarOpinion(opinion);
+	public void agregarOpinion(Opinion opinion) { // ver de agregar exception si ya opino
+		if(this.elUsuarioNoOpino(opinion.getUsuario())) {
+			this.estado.agregarOpinion(opinion);
+		} 
 	}
 
-	public ArrayList<Opinion> opinionDeUsuario(Usuario usuario) {
-		return (ArrayList<Opinion>) this.getOpiniones().stream().filter(opinion -> opinion.getUsuario().equals(usuario));
+	public Opinion opinionDeUsuario(Usuario usuario) {
+		// Precondicion: el usuario tiene que haber opinado en la muestra
+		Stream<Opinion> opinionLista = this.getOpiniones().stream().filter(opinion -> opinion.getUsuario().equals(usuario));
+		return opinionLista.toList().get(0);
+	}
+	
+	public Boolean elUsuarioNoOpino(Usuario usuario) {
+		Stream<Opinion> opinionLista = this.getOpiniones().stream().filter(opinion -> opinion.getUsuario().getId() == usuario.getId());
+		return opinionLista.toList().size() == 0;
 	}
 
 
@@ -70,12 +79,12 @@ public class Muestra {
 	}
 
 
-	public ArrayList<Opinion> opinionesExpertos() {
-		return (ArrayList<Opinion>) this.opiniones.stream().filter(opinion -> opinion.getUsuario().esExperto());
+	public List<Opinion> opinionesExpertos() {
+		Stream <Opinion> opinionesExpertos = this.opiniones.stream().filter(opinion -> opinion.getUsuario().esExperto());
+		return opinionesExpertos.toList();
 	}
 	
 	public void actualizarOpinion(){
-		// inicializar contadores para cada opinion y recorrer todo con un for?
 		ArrayList<OpinionImagen> opinionesDeImagen = new ArrayList<OpinionImagen>();
 		this.getOpiniones().stream().forEach(opinion -> opinionesDeImagen.add(opinion.getOpinion()));
 		this.actualizarOpinionActual(opinionesDeImagen);
@@ -101,7 +110,34 @@ public class Muestra {
                 opinionConMayorCantidad = opinion;
             }
         }
-        this.tipoInsecto = opinionConMayorCantidad;
+        this.validarOpinionConMayorCantidad(opinionConMayorCantidad, recuento, cantidadMaxima);
+        // this.tipoInsecto = opinionConMayorCantidad;
+	}
+    
+    public void validarOpinionConMayorCantidad(OpinionImagen opinion, HashMap<OpinionImagen, Integer> mapOpiniones, int cantidad) {
+    	int cantidadDeValoresIguales = 0;
+    	for(Map.Entry<OpinionImagen, Integer> entry : mapOpiniones.entrySet()) {
+    	    OpinionImagen opinionDeImagen = entry.getKey();
+    	    int cantidadDeVotaciones = entry.getValue();
+			if (cantidad == cantidadDeVotaciones) {
+				cantidadDeValoresIguales += 1;
+    	    }   
+    	}
+    	
+    	this.definirTipoDeInsecto(cantidadDeValoresIguales > 1, opinion);
+    }
+    
+    public void definirTipoDeInsecto(boolean esEmpate, OpinionImagen opinion) {
+    	if(esEmpate) {
+    		this.tipoInsecto = OpinionImagen.NO_DEFINIDA;
+    	} else {
+    		this.tipoInsecto = opinion;
+    	}
+    }
+
+
+	public void agregarOpinionDe(Opinion opinion) {
+		this.opiniones.add(opinion);
 	}
 }
 
