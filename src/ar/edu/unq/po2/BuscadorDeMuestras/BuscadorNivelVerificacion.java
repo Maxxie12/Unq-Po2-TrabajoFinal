@@ -3,24 +3,23 @@ package ar.edu.unq.po2.BuscadorDeMuestras;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import ar.edu.unq.po2.Muestra.IEstadoMuestra;
+
 import ar.edu.unq.po2.Muestra.Muestra;
 
-public class BuscadorNivelVerificacion implements IBuscadorMuestras{
+public class BuscadorNivelVerificacion{
 	
-	private IEstadoMuestra estadoMuestraABuscar;
+	private boolean estadoMuestraABuscar;
 
-	    public void setEstadoMuestraABuscar(IEstadoMuestra estadoMuestraABuscar) {
-	        this.estadoMuestraABuscar = estadoMuestraABuscar;
-	    }
+	public void setEstadoMuestraABuscar(boolean esVerificada) {
+	    this.estadoMuestraABuscar = esVerificada;
+	}
 
-	    @Override
-	    public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar) {
-	        List<Muestra> resultado = muestrasAFiltrar.stream()
-	                .filter(muestra -> muestra.getEstadoMuestra().equals(estadoMuestraABuscar))
-	                .collect(Collectors.toList());
-	        return resultado;
-	    }
+	public List<Muestra> filtrar(List<Muestra> muestrasAFiltrar) {
+	    List<Muestra> resultado = muestrasAFiltrar.stream()
+	            .filter(muestra -> muestra.getEstadoMuestra().esVerificada() == estadoMuestraABuscar)
+	            .collect(Collectors.toList());
+	    return resultado;
+	}
 
 
 }
