@@ -14,6 +14,13 @@ public class Sistema {
 	private ArrayList<ZonaDeCobertura> zonasDeCobertura;
 	private ArrayList<Organizacion> organizaciones;
 	
+	public Sistema(){
+			muestras = new ArrayList<Muestra>();
+			usuarios = new ArrayList<Usuario>();
+			zonasDeCobertura = new ArrayList<ZonaDeCobertura>();
+			organizaciones = new ArrayList<Organizacion>();
+	}
+	
 	public void agregarMuestra(Muestra muestra) {
 		this.muestras.add(muestra);
 	}
