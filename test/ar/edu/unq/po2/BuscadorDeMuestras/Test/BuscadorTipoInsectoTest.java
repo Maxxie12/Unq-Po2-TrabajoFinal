@@ -17,7 +17,7 @@ import ar.edu.unq.po2.BuscadorDeMuestras.BuscadorTipoInsecto;
 import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.Muestra.OpinionImagen;
 
-public class BuscadorTipoIntectoTest {
+public class BuscadorTipoInsectoTest {
 	
 	List<Muestra> muestrasAFiltrar = new ArrayList<Muestra>();
 	BuscadorTipoInsecto buscadorTipoInsecto;  

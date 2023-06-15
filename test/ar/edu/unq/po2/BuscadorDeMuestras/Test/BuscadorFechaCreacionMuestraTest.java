@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import ar.edu.unq.po2.BuscadorDeMuestras.BuscadorFechaCreacionMuestra;
@@ -16,37 +17,37 @@ import ar.edu.unq.po2.Muestra.Muestra;
 
 public class BuscadorFechaCreacionMuestraTest {
 
-		  private BuscadorFechaCreacionMuestra buscador;
+		  private BuscadorFechaCreacionMuestra buscadorFechaCreacionMuestra;
 		  private List<Muestra> muestrasAFiltrar;
+		  
+		  
+		  @Mock
+		  Muestra muestra1 = Mockito.mock(Muestra.class);
+		  Muestra muestra2 = Mockito.mock(Muestra.class);
+		  Muestra muestra3 = Mockito.mock(Muestra.class);
 
 		    @BeforeEach
-		    public void setup() {
-		        buscador = new BuscadorFechaCreacionMuestra();
-		        muestrasAFiltrar = new ArrayList<>();
-		    }
-
-		    @Test
-		    public void testFiltrar() {
-		        
+		    public void setup() { 
+		    	muestrasAFiltrar = new ArrayList<>();
+		    	buscadorFechaCreacionMuestra = new BuscadorFechaCreacionMuestra();
 		        LocalDate fecha = LocalDate.of(2022, 1, 1);
-
-		        Muestra muestra1 = Mockito.mock(Muestra.class);
 		        when(muestra1.getFechaCreacion()).thenReturn(LocalDate.of(2021, 12, 31));
-
-		        Muestra muestra2 = Mockito.mock(Muestra.class);
 		        when(muestra2.getFechaCreacion()).thenReturn(LocalDate.of(2022, 2, 1));
-
-		        Muestra muestra3 = Mockito.mock(Muestra.class);
 		        when(muestra3.getFechaCreacion()).thenReturn(LocalDate.of(2022, 1, 2));
 
 		        muestrasAFiltrar.add(muestra1);
 		        muestrasAFiltrar.add(muestra2);
 		        muestrasAFiltrar.add(muestra3);
 
-		        buscador.setFecha(fecha);
-
+		        buscadorFechaCreacionMuestra.setFecha(fecha);
 		        
-		        List<Muestra> resultado = buscador.filtrar(muestrasAFiltrar);
+		        
+		    }
+
+		    @Test
+		    public void testFiltrar() {			        
+		   
+		        List<Muestra> resultado = buscadorFechaCreacionMuestra.filtrar(muestrasAFiltrar);
 
 		        // Assert
 		        assertEquals(2, resultado.size());
