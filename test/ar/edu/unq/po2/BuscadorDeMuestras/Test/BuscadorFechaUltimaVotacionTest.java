@@ -62,7 +62,7 @@ public class BuscadorFechaUltimaVotacionTest {
 	public void testFiltrarMuestrasPorFechaUltimaVotacion() {
 		 List<Muestra> resultado = buscadorFechaUltimaVotacion.filtrar(muestrasAFiltrar);
 		    assertEquals(2, resultado.size());
-<<<<<<< HEAD
+
 	
 	}
 	@Test
@@ -75,11 +75,7 @@ public class BuscadorFechaUltimaVotacionTest {
 	public void ContieneMuestra1() {
 		List<Muestra> resultado = buscadorFechaUltimaVotacion.filtrar(muestrasAFiltrar);
 		assertTrue(resultado.contains(muestra1));
-	
-=======
-		    assertEquals(muestra3, resultado.get(1));
-		    //assertEquals(muestra2, resultado.get(1));
->>>>>>> branch 'main' of https://github.com/Maxxie12/Unq-Po2-TrabajoFinal.git
+
 	}
 }
 	

@@ -16,11 +16,9 @@ import org.mockito.Mock;
 import ar.edu.unq.po2.BuscadorDeMuestras.BuscadorNivelVerificacion;
 import ar.edu.unq.po2.Muestra.IEstadoMuestra;
 import ar.edu.unq.po2.Muestra.Muestra;
-<<<<<<< HEAD
-=======
+
 import ar.edu.unq.po2.Muestra.MuestraVerificada;
-import ar.edu.unq.po2.Muestra.OpinionImagen;
->>>>>>> branch 'main' of https://github.com/Maxxie12/Unq-Po2-TrabajoFinal.git
+
 
 public class BuscadorNivelVerificacionTest {
 
@@ -44,19 +42,13 @@ public class BuscadorNivelVerificacionTest {
 	 
 		@BeforeEach
 			void setUp() { 
-<<<<<<< HEAD
+
 			buscadorNivelVerificacion = new BuscadorNivelVerificacion();
 			muestrasAFiltrar = new ArrayList<>();
 	
 			estadoMuestraVerificado = mock(IEstadoMuestra.class);
 		    estadoMuestraNoVerificado = mock(IEstadoMuestra.class);
-=======
-			when(muestra1.getEstadoMuestra()).thenReturn(muestraVerificada);
-		  	when(muestra2.getEstadoMuestra()).thenReturn(OpinionImagen.VINCHUCA_INFESTANS);
-		  	when(muestra3.getEstadoMuestra()).thenReturn(OpinionImagen.CHINCHE_FOLIADA);
-		  	when(muestra4.getEstadoMuestra()).thenReturn(OpinionImagen.VINCHUCA_SORDIDA);
->>>>>>> branch 'main' of https://github.com/Maxxie12/Unq-Po2-TrabajoFinal.git
-		    
+		  
 			when(muestra1.getEstadoMuestra()).thenReturn(estadoMuestraVerificado);
 	        when(muestra2.getEstadoMuestra()).thenReturn(estadoMuestraNoVerificado);
 	        when(muestra3.getEstadoMuestra()).thenReturn(estadoMuestraVerificado);
@@ -72,17 +64,10 @@ public class BuscadorNivelVerificacionTest {
 	    }
 	   
 	    @Test
-<<<<<<< HEAD
+
 	    public void testFiltrarMuestrasEstadoVerificado() {
 		buscadorNivelVerificacion.setEstadoMuestraABuscar(true);
         List<Muestra> resultado = buscadorNivelVerificacion.filtrar(muestrasAFiltrar);
-=======
-	  public void testBuscadorTipoInsectoVinchuca(){   
-	    	buscadorNivelVerificacion = new BuscadorNivelVerificacion();
-	    	buscadorNivelVerificacion.setEstadoMuestraABuscar(muestraVerificada);
-	    	List<Muestra> resultadoFiltrado = buscadorNivelVerificacion.filtrar(muestrasAFiltrar);
->>>>>>> branch 'main' of https://github.com/Maxxie12/Unq-Po2-TrabajoFinal.git
-
         // Assert
         assertEquals(3, resultado.size());
 
