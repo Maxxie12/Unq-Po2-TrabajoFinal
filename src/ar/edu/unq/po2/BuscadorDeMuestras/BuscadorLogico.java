@@ -4,7 +4,7 @@ import java.util.List;
 
 import ar.edu.unq.po2.Muestra.Muestra;
 
-public abstract class BuscadorLogico implements IBuscadorMuestras {
+public abstract class BuscadorLogico  {
 	
 	private IBuscadorMuestras filtroBusqueda1;
 	private IBuscadorMuestras filtroBusqueda2;
