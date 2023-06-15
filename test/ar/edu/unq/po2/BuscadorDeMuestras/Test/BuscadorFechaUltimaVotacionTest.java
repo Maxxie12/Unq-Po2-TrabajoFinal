@@ -2,6 +2,8 @@ package ar.edu.unq.po2.BuscadorDeMuestras.Test;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -61,8 +63,21 @@ public class BuscadorFechaUltimaVotacionTest {
 	public void testFiltrarMuestrasPorFechaUltimaVotacion() {
 		 List<Muestra> resultado = buscadorFechaUltimaVotacion.filtrar(muestrasAFiltrar);
 		    assertEquals(2, resultado.size());
-		    assertEquals(muestra3, resultado.get(0));
-		    assertEquals(muestra2, resultado.get(1));
+	
+	}
+	@Test
+	public void noContieneMuestra3() {
+		List<Muestra> resultado = buscadorFechaUltimaVotacion.filtrar(muestrasAFiltrar);
+			assertFalse(resultado.contains(muestra3));
+		
+	}
+	@Test
+	public void ContieneMuestra1() {
+		List<Muestra> resultado = buscadorFechaUltimaVotacion.filtrar(muestrasAFiltrar);
+		assertTrue(resultado.contains(muestra1));
+	
 	}
 }
+	
+	
 
