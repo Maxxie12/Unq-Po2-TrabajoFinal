@@ -64,7 +64,7 @@ public class BuscadorTipoInsectoTest {
 	    	List<Muestra> resultadoFiltrado = buscadorTipoInsecto.filtrar(muestrasAFiltrar);
 
 
-	    	assertFalse(resultadoFiltrado.size()>0);
+	    	assertTrue(resultadoFiltrado.isEmpty());
 	    }
 		 
 		 
