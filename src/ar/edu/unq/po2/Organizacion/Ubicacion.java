@@ -3,8 +3,8 @@ package ar.edu.unq.po2.Organizacion;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unq.po2.Common.Sistema;
 import ar.edu.unq.po2.Muestra.Muestra;
-import ar.edu.unq.po2.TrabajoFinal.Sistema;
 
 public class Ubicacion {
 	

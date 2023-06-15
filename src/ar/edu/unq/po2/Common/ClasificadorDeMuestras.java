@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.TrabajoFinal;
+package ar.edu.unq.po2.Common;
 import java.util.ArrayList;
 import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.Muestra.MuestraVerificada;

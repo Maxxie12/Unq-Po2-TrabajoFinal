@@ -5,9 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+
+import ar.edu.unq.po2.Common.Sistema;
 import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.Muestra.Opinion;
-import ar.edu.unq.po2.TrabajoFinal.Sistema;
 
 public class UsuarioTest {
 	Usuario usuarioTest;

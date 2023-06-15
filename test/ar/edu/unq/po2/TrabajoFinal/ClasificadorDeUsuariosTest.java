@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import ar.edu.unq.po2.Common.ClasificadorDeUsuarios;
+import ar.edu.unq.po2.Common.Sistema;
 import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.Muestra.Opinion;
 import ar.edu.unq.po2.Usuario.Usuario;

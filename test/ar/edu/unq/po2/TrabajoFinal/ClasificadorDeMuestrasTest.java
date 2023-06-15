@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+
+import ar.edu.unq.po2.Common.ClasificadorDeMuestras;
+import ar.edu.unq.po2.Common.Sistema;
 import ar.edu.unq.po2.Muestra.Muestra;
 import ar.edu.unq.po2.Muestra.MuestraVerificada;
 import ar.edu.unq.po2.Muestra.Opinion;
