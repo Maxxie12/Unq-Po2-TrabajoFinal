@@ -19,6 +19,7 @@ public class BuscadorFechaUltimaVotacion implements IBuscadorMuestras {
 		
 
 
+
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
